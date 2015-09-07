@@ -1,0 +1,58 @@
+{
+  "name": "stm32f411re-nucleo-gcc",
+  "version": "0.1.0",
+  "inherits": {
+    "mbed-gcc": "*"
+  },
+  "description": "Official mbed build target for the mbed st-nucleo-f411re development board.",
+  "licenses": [
+    {
+      "url": "https://spdx.org/licenses/Apache-2.0",
+      "type": "Apache-2.0"
+    }
+  ],
+  "keywords": [
+    "mbed-target:nucleo-f411re",
+    "mbed-official",
+    "stm32f411re-nucleo",
+    "gcc"
+  ],
+  "similarTo": [
+    "stm32f411re-nucleo",
+    "f411re",
+    "f411",
+    "nucleo",
+    "stm32f411ret6",
+    "stm32f411re",
+    "stm32f411xe",
+    "stm32f411",
+    "stm32f4",
+    "stm32",
+    "st",
+    "cortex-m4",
+    "armv7-m",
+    "arm",
+    "gcc"
+  ],
+  "toolchain": "CMake/toolchain.cmake",
+  "debug": [
+    "valinor",
+    "--target",
+    "stm32f411re",
+    "$program"
+  ],
+  "scripts": {
+    "debug": [
+      "valinor",
+      "--target",
+      "stm32f411re",
+      "$program"
+    ],
+    "test": [
+      "mbed_test_wrapper",
+      "--target",
+      "STM32F411RE-NUCLEO",
+      "$program"
+    ]
+  }
+}
