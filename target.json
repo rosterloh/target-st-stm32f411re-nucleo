@@ -1,6 +1,6 @@
 {
   "name": "stm32f411re-nucleo-gcc",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "inherits": {
     "mbed-gcc": "*"
   },
