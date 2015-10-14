@@ -2,7 +2,7 @@
   "name": "stm32f411re-nucleo-gcc",
   "version": "0.0.1",
   "inherits": {
-    "mbed-gcc": "*"
+    "mbed-gcc": "~0.1.3"
   },
   "description": "Official mbed build target for the mbed st-nucleo-f411re development board.",
   "licenses": [
@@ -34,13 +34,36 @@
     "arm",
     "gcc"
   ],
+  "config": {
+    "mbed-os": {},
+    "cmsis": {
+      "nvic": {
+        "ram_vector_address": "0x20000000",
+        "flash_vector_address": "0x08000000",
+        "user_irq_offset": 16,
+        "user_irq_number": 62
+      }
+    },
+    "hardware": {
+      "externalClock": "8000000",
+      "pins": {
+        "LED1": "PA_5",
+        "USER_BUTTON": "PC_13",
+        "SERIAL_TX": "PA_9",
+        "SERIAL_RX": "PA_10",
+        "USBTX": "PA_9",
+        "USBRX": "PA_10",
+        "I2C_SCL": "PB_8",
+        "I2C_SDA": "PB_9",
+        "SPI_MOSI": "PA_7",
+        "SPI_MISO": "PA_6",
+        "SPI_SCK": "PA_5",
+        "SPI_CS": "PA_4",
+        "PWM_OUT": "PB_3"
+      }
+    }
+  },
   "toolchain": "CMake/toolchain.cmake",
-  "debug": [
-    "valinor",
-    "--target",
-    "stm32f411re",
-    "$program"
-  ],
   "scripts": {
     "debug": [
       "valinor",
