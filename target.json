@@ -60,6 +60,22 @@
         "SPI_SCK": "PA_5",
         "SPI_CS": "PA_4",
         "PWM_OUT": "PB_3"
+      },
+      "test-pins": {
+        "spi": {
+          "mosi": "SPI_MOSI",
+          "miso": "SPI_MISO",
+          "sclk": "SPI_SCK",
+          "ssel": "SPI_CS"
+        },
+        "i2c": {
+          "sda": "I2C_SDA",
+          "scl": "I2C_SCL"
+        },
+        "serial": {
+          "tx": "SERIAL_TX",
+          "rx": "SERIAL_RX"
+        }
       }
     }
   },
