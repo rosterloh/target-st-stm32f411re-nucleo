@@ -1,21 +1,28 @@
 {
   "name": "stm32f411re-nucleo-gcc",
-  "version": "0.1.1",
-  "inherits": {
-    "mbed-gcc": "~0.1.3"
+  "version": "0.1.2",
+  "description": "Unofficial mbed build target for the ST Nucleo F411RE development board.",
+  "author": "Richard Osterloh <richard.osterloh@gmail.com>",
+  "homepage": "https://github.com/rosterloh/target-st-stm32f411re-nucleo",
+  "repository": {
+    "url": "git@github.com:rosterloh/target-st-stm32f411re-nucleo.git",
+    "type": "git"
   },
-  "description": "mbed build target for the ST Nucleo F411RE development board.",
-  "author": "richard.osterloh@gmail.com",
   "licenses": [
     {
       "url": "https://spdx.org/licenses/Apache-2.0",
       "type": "Apache-2.0"
     }
   ],
+  "inherits": {
+    "mbed-gcc": "*"
+  },
   "keywords": [
     "mbed-target:nucleo-f411re",
-    "mbed-official",
     "stm32f411re-nucleo",
+    "nucleo",
+    "ST",
+    "STM",
     "gcc"
   ],
   "similarTo": [
@@ -45,8 +52,12 @@
         "user_irq_number": 62
       }
     },
+    "uvisor": {
+      "present": 0
+    },
     "hardware": {
       "externalClock": "8000000",
+      "internalClock": "16000000",
       "pins": {
         "LED1": "PA_5",
         "USER_BUTTON": "PC_13",
@@ -60,7 +71,29 @@
         "SPI_MISO": "PA_6",
         "SPI_SCK": "PA_5",
         "SPI_CS": "PA_4",
-        "PWM_OUT": "PB_3"
+        "PWM_OUT": "PB_3",
+        "A0": "PA_0",
+        "A1": "PA_1",
+        "A2": "PA_4",
+        "A3": "PB_0",
+        "A4": "PC_1",
+        "A5": "PC_0",
+        "D0": "PA_3",
+        "D1": "PA_2",
+        "D2": "PA_10",
+        "D3": "PB_3",
+        "D4": "PB_5",
+        "D5": "PB_4",
+        "D6": "PB_10",
+        "D7": "PA_8",
+        "D8": "PA_9",
+        "D9": "PC_7",
+        "D10": "PB_6",
+        "D11": "PA_7",
+        "D12": "PA_6",
+        "D13": "PA_5",
+        "D14": "PB_9",
+        "D15": "PB_8"
       },
       "test-pins": {
         "spi": {
@@ -81,17 +114,23 @@
     }
   },
   "toolchain": "CMake/toolchain.cmake",
+  "debug": [
+    "valinor",
+    "--target",
+    "stm32f411re",
+    "$program"
+  ],
   "scripts": {
     "debug": [
       "valinor",
       "--target",
-      "stm32f411re",
+      "NUCLEO_F411RE",
       "$program"
     ],
     "test": [
       "mbed_test_wrapper",
       "--target",
-      "STM32F411RE-NUCLEO",
+      "NUCLEO_F411RE",
       "$program"
     ]
   }

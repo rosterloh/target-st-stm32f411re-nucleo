@@ -1,4 +1,4 @@
-## yotta Target Description using GCC to compile for STM32F411RE NUCLEO
+## Unofficial yotta Target Description using GCC to compile for STM32F411RE NUCLEO
 
 Use this target description to compile [mbed
 OS](http://www.mbed.com/en/development/software/mbed-os/) for the [NUCLEO F411RE](http://www.mbed.com/en/development/hardware/boards/)

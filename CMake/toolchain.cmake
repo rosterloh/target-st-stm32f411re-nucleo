@@ -1,5 +1,3 @@
-# Copyright (C) 2014-2015 ARM Limited. All rights reserved.
-
 if(TARGET_STM32F411RE_NUCLEO_GCC_TOOLCHAIN_INCLUDED)
     return()
 endif()
@@ -11,9 +9,9 @@ set(TARGET_STM32F411RE_NUCLEO_GCC_TOOLCHAIN_INCLUDED 1)
 # definition that you're about to add to rely on the TARGET_LIKE_XXX
 # definitions that yotta provides based on the target.json file.
 #
-add_definitions("-DTARGET_STM32F411RE_NUCLEO -DTARGET_STM32F411RE -DTARGET_STM32F4 -DTOOLCHAIN_GCC -DTOOLCHAIN_GCC_ARM")
+add_definitions("-DTARGET_STM32F411RE_NUCLEO -DTARGET_STM32F411RE -DTARGET_STM32F4 -DTARGET_STM -DSTM32F411xE")
 
-# append non-generic flags, and set K64F-specific link script
+# append non-generic flags, and set Nucleo-F411RE-specific link script
 
 set(_CPU_COMPILATION_OPTIONS "-mcpu=cortex-m4 -mthumb -D__thumb2__")
 

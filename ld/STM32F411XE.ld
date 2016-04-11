@@ -2,8 +2,7 @@
 MEMORY
 {
   VECTORS (rx)          : ORIGIN = 0x08000000, LENGTH = 0x00000400
-  FLASH_PROTECTION (rx) : ORIGIN = 0x08000400, LENGTH = 0x00000010
-  FLASH (rx)            : ORIGIN = 0x08000410, LENGTH = 512K - 0x410
+  FLASH (rx)            : ORIGIN = 0x08000410, LENGTH = 512K - 0x400
   RAM (rwx)             : ORIGIN = 0x20000198, LENGTH = 128k - 0x198
 }
 
@@ -44,12 +43,6 @@ SECTIONS
         KEEP(*(.isr_vector))
          . = ALIGN(4);
     } > VECTORS
-
-    .flash_protect :
-    {
-        KEEP(*(.kinetis_flash_config_field))
-         . = ALIGN(4);
-    } > FLASH_PROTECTION
 
     /* ensure that uvisor bss is at the beginning of memory */
     .uvisor.bss (NOLOAD):
@@ -111,6 +104,7 @@ SECTIONS
     {
         *(.ARM.extab* .gnu.linkonce.armextab.*)
     } > FLASH
+
     __exidx_start = .;
 
     .ARM.exidx :
